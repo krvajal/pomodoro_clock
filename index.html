@@ -15,13 +15,14 @@
     <div ng-controller="AppCtrl as ctrl" ng-cloak="" ng-app="PomodoroApp" class="app">
       <div class="timer-container" md-whiteframe="12">
         <div class="progress-control">
-          <div class="progress play-pause" ng-click="toggleStatus()">
+            <div class="progress play-pause" ng-click="toggleStatus()">
+            <progress-circular progress="{{ctrl.progress}}"> </progress-circular>
           </div>
 
         </div>
         <div class="display-container">
           <div class="input" ng-show="!ctrl.timerRunning">
-            <label >Session Length</label>
+            <label >Session Length:</label>
             <div class="time-input-group">
               <input type="text" placeholder="HH"  maxlength="2"
               ng-model="ctrl.config.sessionLength.hour"/>
@@ -47,7 +48,6 @@
 
           <div ng-class="ctrl.countDownClass()" ng-show="ctrl.timerRunning">
             <span class="hour_min">{{ ctrl.currentTimeInSeconds | hoursandmins }}<sup class="seconds">{{ ctrl.currentTimeInSeconds | seconds}}</sup></span>
-
           </div>
         </div>
 

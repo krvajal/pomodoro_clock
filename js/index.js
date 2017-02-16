@@ -19,7 +19,16 @@ angular.module('PomodoroApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCac
   var stop;
   var startingFromPause = false;
   self.onSession = true; // the clock is running the session interval
+  self.progress = 0;
 
+  var  getCurrentProgress = function(){
+    var timeFraction = self.currentTimeInSeconds * 1.0;
+    var length = (self.onSession)?
+           getTimeInSeconds(self.config.sessionLength):
+           getTimeInSeconds(self.config.breakLength);
+           timeFraction = (length - timeFraction)/length;
+    return Math.floor( timeFraction *  100);
+  }
   var startSessionTimer = function(){
 
       if(!startingFromPause){
@@ -31,11 +40,14 @@ angular.module('PomodoroApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCac
 
           console.log(self.currentTimeInSeconds);
           self.currentTimeInSeconds--;
+          self.progress = getCurrentProgress();
+
       }, 1000, self.currentTimeInSeconds).then(function(){
           //timer done
           // reset the fields
           self.onSession = false;
           self.startingFromPause = false;
+          self.progress = 0;
           sound.play();
           startBreakTimer();
       });
@@ -52,6 +64,7 @@ angular.module('PomodoroApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCac
           console.log(self.currentTimeInSeconds);
 
           self.currentTimeInSeconds--;
+          self.progress = getCurrentProgress();
 
       }, 1000, self.currentTimeInSeconds).then(function(){
           //timer done
