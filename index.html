@@ -19,7 +19,7 @@
 
         </div>
         <div class="display-container">
-          <div class="input" ng-show="!timerRunning">
+          <div class="input" ng-show="!ctrl.timerRunning">
             <label >Session Length</label>
             <div class="time-input-group">
               <input type="text" placeholder="HH"  maxlength="2"
@@ -44,8 +44,8 @@
             </div>
           </div>
 
-          <div class="count-down-container" ng-show="timerRunning">
-            <span class="hour_min">10:10<sup class="seconds">10</sup></span>
+          <div class="count-down-container" ng-show="ctrl.timerRunning">
+            <span class="hour_min">{{ ctrl.currentTimeInSeconds | hoursandmins }}<sup class="seconds">{{ ctrl.currentTimeInSeconds | seconds}}</sup></span>
 
           </div>
         </div>
