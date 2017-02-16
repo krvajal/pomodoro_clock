@@ -1,60 +1,61 @@
 <!DOCTYPE html>
 <html >
-<head>
-  <meta charset="UTF-8">
-  <title>FCC Pomodoro Clock</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
-  
-  <link rel='stylesheet prefetch' href='https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.1/angular-material.css'>
-<link rel='stylesheet prefetch' href='https://material.angularjs.org/1.1.1/docs.css'>
+  <head>
+    <meta charset="UTF-8">
+    <title>FCC Pomodoro Clock</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
 
-      <link rel="stylesheet" href="css/style.css">
+    <link rel='stylesheet prefetch' href='https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.1/angular-material.css'>
+    <link rel='stylesheet prefetch' href='https://material.angularjs.org/1.1.1/docs.css'>
+    <link rel="stylesheet" href="css/style.css">
 
-  
-</head>
+  </head>
+  <body>
+    <div ng-controller="AppCtrl as ctrl" ng-cloak="" ng-app="PomodoroApp" class="app">
+      <div class="timer-container" md-whiteframe="12">
+        <div class="progress-control">
+          <div class="progress play-pause" ng-click="toggleStatus()">
+          </div>
 
-<body>
-  <div ng-controller="AppCtrl" ng-cloak="" ng-app="MyApp" class="app">
-   <div class="timer-container" md-whiteframe="12">
-     <div class="progress-control">
-       <div class="progress play-pause" ng-click="toggleStatus()">
+        </div>
+        <div class="display-container">
+          <div class="input" ng-show="!timerRunning">
+            <label >Session Length</label>
+            <div class="time-input-group">
+              <input type="text" placeholder="HH"  maxlength="2"
+              ng-model="ctrl.config.sessionLength.hour"/>
+              <span>:</span>
+              <input type="text" placeholder="MM"  maxlength="2"
+              ng-model="ctrl.config.sessionLength.min"/>
+              <span>:</span>
+              <input type="text" placeholder="SS"  maxlength="2"
+              ng-model="ctrl.config.sessionLength.sec"/>
+            </div>
+            <label >Break Length</label>
+            <div class="time-input-group">
+              <input type="text" placeholder="HH" maxlength="2"
+              ng-model="ctrl.config.breakLength.hour"/>
+              <span>:</span>
+              <input type="text" placeholder="MM"  maxlength="2"
+              ng-model="ctrl.config.breakLength.min"/>
+              <span>:</span>
+              <input type="text" placeholder="SS"  maxlength="2"
+              ng-model="ctrl.config.breakLength.sec"/>
+            </div>
+          </div>
 
-       </div>
-         
-     </div>
-     <div class="display-container">
-       <div class="input" ng-show="!timerRunning">
-        <label >Session Length</label>
-        <div class="time-input-group">
-          <input type="text" placeholder="HH"  maxlength="2"/>
-          <span>:</span>
-          <input type="text" placeholder="MM"  maxlength="2"/>
-           <span>:</span>
-          <input type="text" placeholder="SS"  maxlength="2"/> 
-       </div>
-         <label >Break Length</label>
-         <div class="time-input-group">
-            <input type="text" placeholder="HH" maxlength="2"/>
-            <span>:</span>
-            <input type="text" placeholder="MM"  maxlength="2"/>
-             <span>:</span>
-            <input type="text" placeholder="SS"  maxlength="2"/> 
-         </div>
-       </div>
-        
-       <div class="count-down-container" ng-show="timerRunning">
-           <span class="hour_min">10:10<sup class="seconds">10</sup></span>
-           
-       </div>
-     </div>
-    
-  </div>
- 
-</div>
+          <div class="count-down-container" ng-show="timerRunning">
+            <span class="hour_min">10:10<sup class="seconds">10</sup></span>
 
-<audio src="" id="break-sound"></audio>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  <audio src="" id="break-sound"></audio>
 <audio src="" id="session-sound"></audio>
-  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js'></script>
 <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js'></script>
 <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js'></script>
 <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js'></script>
@@ -62,8 +63,6 @@
 <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js'></script>
 <script src='https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.1/angular-material.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.3.0/math.min.js'></script>
-
-    <script src="js/index.js"></script>
-
+<script src="js/index.js"></script>
 </body>
 </html>
