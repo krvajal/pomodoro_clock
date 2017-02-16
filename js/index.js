@@ -71,6 +71,7 @@ angular.module('PomodoroApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCac
           self.onSession = true;
           self.timerRunning = false;
           sound.play();
+          self.progress = 0;
           progressElement.classList.toggle("playing-session");
           // session + break done
       });

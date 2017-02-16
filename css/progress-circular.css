@@ -6,7 +6,7 @@
   border-color: transparent;
   position: absolute;
   box-sizing: border-box;
-  clip: rect(0px 130px 130px 75px);
+  clip: rect(0px 130px 130px 65px);
 }
 
 .frame.half-filled {
@@ -14,14 +14,14 @@
 }
 
 .circle {
-  clip: rect(0px 75px 130px 0px);
+  clip: rect(0px 65px 130px 0px);
   box-sizing: border-box;
   width: 130px;
   left: -10px;
   top: -10px;
   height: 130px;
   border: 10px solid green;
-  border-radius: 75px;
+  border-radius: 65px;
   position: absolute;
   -webkit-transform: rotateZ(180deg);
   transform: rotateZ(180deg);
