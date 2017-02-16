@@ -27,7 +27,7 @@ angular.module('PomodoroApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCac
            getTimeInSeconds(self.config.sessionLength):
            getTimeInSeconds(self.config.breakLength);
            timeFraction = (length - timeFraction)/length;
-    return Math.floor( timeFraction *  100);
+    return  timeFraction *  100;
   }
   var startSessionTimer = function(){
 
@@ -85,9 +85,9 @@ angular.module('PomodoroApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCac
         self.startingFromPause = true;
         $interval.cancel(stop);
         stop = undefined;
-        alert("stoped");
+
       }else{
-        alert("stop undefined??");
+
       }
   }
   function getTimeInSeconds(timeLength){

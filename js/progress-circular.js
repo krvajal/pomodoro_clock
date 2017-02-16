@@ -15,7 +15,7 @@ angular.module("ngProgressCircular",[]).directive("progressCircular", function()
      var rightCircle =  angular.element(element.children()[1]);
 
      attrs.$observe("progress", function(progressInPercent) {
-         var progress = Math.floor(Number(progressInPercent)/100.0 * 360.0);
+         var progress = Number(progressInPercent)/100.0 * 360.0;
        console.log(progress);
         scope.getProgressClass = function(){
           return {'frame':true,"half-filled": progress > 180};
