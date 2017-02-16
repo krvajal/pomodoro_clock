@@ -6,12 +6,14 @@ var pad = function(number, size) {
 }
 
 
-angular.module('PomodoroApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCache'])
+angular.module('PomodoroApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCache',"ngProgressCircular"])
 .controller('AppCtrl', function($scope, $interval) {
 
   var self = this;
   self.timerRunning = false;
   const progressElement =   document.querySelector(".progress");
+  const sound = document.getElementById("break-sound");
+
   self.currentTimeInSeconds = 25 * 60;   // 25 mins
 
   var stop;
@@ -34,6 +36,7 @@ angular.module('PomodoroApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCac
           // reset the fields
           self.onSession = false;
           self.startingFromPause = false;
+          sound.play();
           startBreakTimer();
       });
 
@@ -54,7 +57,7 @@ angular.module('PomodoroApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCac
           //timer done
           self.onSession = true;
           self.timerRunning = false;
-          alert("Pomodor session done");
+          sound.play();
           progressElement.classList.toggle("playing-session");
           // session + break done
       });
@@ -92,8 +95,12 @@ angular.module('PomodoroApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCac
     sessionLength: {hour: 0, min: 0, sec: 5},
     breakLength: {hour: 0, min: 0, sec: 5}
   };
-
+  self.countDownClass = function(){
+    return {"count-down-container":true, "red-countdown": !self.onSession};
+  }
 })
+
+
 angular.module('PomodoroApp').filter("hoursandmins", function(){
   return function(seconds){
     if(seconds < 0 )return;

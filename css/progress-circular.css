@@ -1,0 +1,28 @@
+.frame {
+  width: 100px;
+  height: 100px;
+  border: 10px solid red;
+  border-radius: 50%;
+  border-color: transparent;
+  position: absolute;
+  box-sizing: border-box;
+  clip: rect(0px 100px 100px 50px);
+}
+
+.frame.half-filled {
+  clip: auto;
+}
+
+.circle {
+  clip: rect(0px 50px 100px 0px);
+  box-sizing: border-box;
+  width: 100px;
+  left: -10px;
+  top: -10px;
+  height: 100px;
+  border: 10px solid green;
+  border-radius: 50px;
+  position: absolute;
+  -webkit-transform: rotateZ(180deg);
+          transform: rotateZ(180deg);
+}
