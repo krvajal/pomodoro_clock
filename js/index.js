@@ -42,7 +42,8 @@ angular.module('PomodoroApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCac
           self.currentTimeInSeconds--;
           self.progress = getCurrentProgress();
 
-      }, 1000, self.currentTimeInSeconds).then(function(){
+      }, 1000, self.currentTimeInSeconds);
+      stop.then(function(){
           //timer done
           // reset the fields
           self.onSession = false;
@@ -66,7 +67,8 @@ angular.module('PomodoroApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCac
           self.currentTimeInSeconds--;
           self.progress = getCurrentProgress();
 
-      }, 1000, self.currentTimeInSeconds).then(function(){
+      }, 1000, self.currentTimeInSeconds);
+      stop.then(function(){
           //timer done
           self.onSession = true;
           self.timerRunning = false;
@@ -83,6 +85,9 @@ angular.module('PomodoroApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCac
         self.startingFromPause = true;
         $interval.cancel(stop);
         stop = undefined;
+        alert("stoped");
+      }else{
+        alert("stop undefined??");
       }
   }
   function getTimeInSeconds(timeLength){
