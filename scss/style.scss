@@ -50,26 +50,26 @@
 
 }
 
-.progress.play-pause:after {
-  content: "▶︎";
+.progress:after {
   position: absolute;
   left: 69px;
   top: 69px;
-  -webkit-transform: translate(-50%, -60%);
-  transform: translate(-50%, -60%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   font-size: 40px;
   font-weight: bolder;
   cursor: pointer;
+  line-height: initial;
+}
+
+.progress.play-pause:after {
+  content: "▶︎";
 }
 
 .progress.playing-session:after {
   content: "||";
-  position: absolute;
-  left: calc(50% - 10px);
-  top: calc(50% - 28px);
-  font-size: 40px;
-  font-weight: bolder;
-  cursor: pointer;
+  -webkit-transform: translate(-560%, -56%);
+  transform: translate(-60%, -55%);
 }
 
 .time-input-group {
