@@ -53,8 +53,10 @@
 .progress.play-pause:after {
   content: "▶︎";
   position: absolute;
-  left: calc(50% - 15px);
-  top: calc(50% - 25px);
+  left: 69px;
+  top: 69px;
+  -webkit-transform: translate(-50%, -60%);
+  transform: translate(-50%, -60%);
   font-size: 40px;
   font-weight: bolder;
   cursor: pointer;
